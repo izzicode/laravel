@@ -1,0 +1,215 @@
+body {
+  font-size: .875rem;
+  background-color: #f2f6fa;
+}
+
+.title{
+  border-bottom: 2px solid red;
+  position: absolute;
+  bottom: 0;
+  color: red;
+  padding: 15px 0;
+  margin-left: 25px;
+  font-weight: 600;
+}
+
+.modal-backdrop{
+  background-color: transparent;
+}
+
+.modal-content {
+    background-color: #374050;
+    border: none; 
+    color: #fff;
+    border-radius: unset;
+}
+.modal-header{
+  border: none;
+}
+.modal-dialog{
+  margin-right: 0;
+}
+.addAttr{
+  color: #0fc5ff;
+  border-bottom: 1.5px dashed #0fc5ff !important;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.9rem
+}
+.addAttr:focus, .addAttr:active {
+  box-shadow: none !important;
+  text-decoration: none;
+  border-bottom: 1.5px dashed cyan !important;
+  color: cyan;
+}
+.addAttr:hover{
+  color: #0071d3;
+  text-decoration: none;
+  border-bottom: 1.5px dashed cyan !important;
+  color: cyan;
+}
+.close {
+  color: #fff;
+  text-shadow: none;
+  opacity: unset;
+  font-size: 2.9rem;
+  font-weight: 100;
+  padding: 1rem 0rem !important;
+  margin: -1.5rem 1rem -1rem auto !important;
+}
+.close:hover{
+  color: #ccc;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+.table{
+  background-color: #fff;
+}
+.table thead {
+  background-color: #f2f6fa;
+}
+.table thead th{
+  font-weight: normal;
+}
+.table tbody td{
+  cursor: pointer;
+}
+.editProduct i, .rmvProduct i{
+  padding: 7px;
+  font-size: 0.6rem;
+  background: #303030;
+  color: #ccc;
+}
+.editProduct:focus, .rmvProduct:focus, .editProduct:active, .rmvProduct:active{
+  box-shadow: none !important;
+}
+
+.btn-add{
+  background-color: #0fc5ff;
+  color: #fff;
+  font-size: 1rem;
+  float: right;
+  padding: 3px 30px;
+}
+.btn-add:hover{
+  color: #0fc5ff;
+  border: 1px solid #0fc5ff;
+  background-color: transparent;
+}
+.btn-add:focus, .btn-add:active {
+  color: #0fc5ff;
+  border: 1px solid #0fc5ff;
+  background-color: transparent;
+  box-shadow: none !important;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  background-color: #374050;
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #999;
+}
+
+.sidebar .nav-link.active {
+  color: #ccc;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: #374050;
+}
+
+.navbar-brand .col-8 > div{
+  font-size: 0.7rem;
+  margin: -4px 5px;
+  color: #fff;
+}
+
+nav{
+    background-color: #fff;
+}
+nav .navbar-nav{
+  float: right;
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
