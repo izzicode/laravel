@@ -29,7 +29,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="src/css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
   </head>
   <body>
     
@@ -37,7 +37,7 @@
   <div class="navbar-brand navbar-brand col-md-3 col-lg-2 mr-0 p-0">
     <div class="row m-0">
       <div class="col-4 p-0">
-          <img width="80" src="src/img/logo.png">
+          <img width="80" src="{{ asset('img/logo.PNG') }}">
       </div>
       <div class="col-8 p-0 mt-2">
         <div>Enterprise</div>

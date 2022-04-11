@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: sample
+        uid: 1000
+      context: ./docker/php/
+      dockerfile: Dockerfile
+    image: travel
+    container_name: travel-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - travel
+
+  nginx:
+    image: nginx:alpine
+    container_name: travel-nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d/
+    depends_on:
+      - app
+    networks:
+      - travel
+
+networks:
+  travel:
+    driver: bridge
