@@ -6,11 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
+        /**
+     * The database connection that should be used by the migration.
      *
-     * @return void
+     * @var string
      */
+    protected $connection = 'pgsql';
+    
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {

@@ -29,7 +29,19 @@ services:
       - app
     networks:
       - travel
-
+  postgres:
+      image: postgres
+      container_name: ${APP_NAME}-postgres
+      restart: unless-stopped
+      ports:
+          - "5433:5432"
+      environment:
+          POSTGRES_USER: ${DB_USERNAME}
+          POSTGRES_PASSWORD: ${DB_PASSWORD}
+          POSTGRES_DB: ${DB_DATABASE}
+          POSTGRES_HOST_AUTH_METHOD: "trust"
+      networks:
+          - travel
 networks:
   travel:
     driver: bridge

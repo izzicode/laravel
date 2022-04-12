@@ -1,9 +1,12 @@
 <?php
  
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
  
 use App\Http\Controllers\Controller;
- 
+use App\Http\Resources\ProductRecource;
+use App\Models\Product;
+use App\Http\Resource\ProductCollection;
+
 class ProductController extends Controller
 {
 
@@ -14,9 +17,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::scopeStatus(Product::AVAILABLE);
+        $products = Product::scopeStatus(Product::AVAILABLE)->get();
     
-        return view('products.index',compact('products'));
+        return new ProductCollection($products);
     }
      
     
@@ -26,17 +29,12 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $productRequest)
     {
-        $request->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);
     
-        Product::create($request->all());
+        $product = Product::create(ProductRequest->all());
      
-        return redirect()->route('products.index')
-                        ->with('success','Product created successfully.');
+        return new ProductRecource($product);
     }
      
     /**
@@ -58,8 +56,9 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $productRequest, Product $product)
     {
+        
 
         $user = Auth::user();
 
@@ -68,14 +67,10 @@ class ProductController extends Controller
             echo 'Not Authorized.';
           }
 
-        $request->validate([
-            'name' => 'required'
-        ]);
     
-        $product->update($request->all());
+        $product->update($productRequest->all());
     
-        return redirect()->route('products.index')
-                        ->with('success','Product updated successfully');
+        return new ProductRecource($product);
     }
     
     /**
@@ -88,8 +83,7 @@ class ProductController extends Controller
     {
         $product->delete();
     
-        return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
+        return response()->json('success','Product deleted successfully');
     }
     
 }

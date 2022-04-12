@@ -19,4 +19,5 @@ use App\Http\Controllers\ProductController;
 // });
 
 Route::get('/', [ProductController::class, 'index']);
+Route::get('/show/{product}', [ProductController::class, 'show']);
 
